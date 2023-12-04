@@ -12,7 +12,7 @@ namespace TechJobsOOAutoGraded6
             public PositionType JobType { get; set; }
             public CoreCompetency JobCoreCompetency { get; set; }
 
-        // TODO: Task 3: Add the two necessary constructors
+        // DONE TODO: Task 3: Add the two necessary constructors
             public Job()
             {
                 Id = nextId;
@@ -30,10 +30,21 @@ namespace TechJobsOOAutoGraded6
 
 
 
-            // TODO: Task 3: Generate Equals() and GetHashCode() methods.  
+        // DONE TODO: Task 3: Generate Equals() and GetHashCode() methods.  
 
-            // TODO: Task 5: Generate custom ToString() method.
-                //Until you create this method, you will not be able to print a job to the console.
+        public override bool Equals(object obj)
+        {
+            return obj is Job job &&
+                   Id == job.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
+
+        // TODO: Task 5: Generate custom ToString() method.
+        //Until you create this method, you will not be able to print a job to the console.
 
 
         //*/
