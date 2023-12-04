@@ -3,36 +3,36 @@ namespace TechJobsOOAutoGraded6
 {
 	public class CoreCompetency
 	{
-        private int Id { get; }
+        public int Id { get; }
         private static int nextId = 1;
-        private string Value { get; set; }
+        public string Value { get; set; }
 
 
-    public CoreCompetency()
+        public CoreCompetency()
         {
-            id = nextId;
+            Id = nextId;
             nextId++;
         }
 
-        public CoreCompetency(string v) : this()
+        public CoreCompetency(string value) : this()
         {
-            value = v;
+            Value = value;
         }
 
         public override bool Equals(object obj)
         {
-            return obj is CoreCompetency competency &&
-                   id == competency.id;
+            return obj is CoreCompetency corecompetency &&
+                   Id == corecompetency.Id;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(id);
+            return HashCode.Combine(Id);
         }
 
         public override string ToString()
         {
-            return value;
+            return Value;
         }
     }
 }
