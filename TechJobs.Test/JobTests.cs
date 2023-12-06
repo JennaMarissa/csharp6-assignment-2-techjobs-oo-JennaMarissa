@@ -1,4 +1,5 @@
-﻿namespace TechJobs.Tests
+﻿using System;
+namespace TechJobs.Tests
 {
     [TestClass]
 	public class JobTests
@@ -34,8 +35,44 @@
         [TestMethod] //3
         public void TestJobsForEquality()
         {
-            Assert.AreNotEqual(job1.Id, job3.Id, "Should return false");
+            Job job3 = new Job();
+            Job job4 = new Job();
+            Assert.AreNotEqual(job4.Id, job3.Id, "Should return false");
         }
+
+        [TestMethod] //4
+        public void TestToStringStartsAndEndsWithNewLine()
+        {
+            //Arrange
+            //Job job3 = new Job();
+
+
+            //Act
+            // actual = job1.ToString([0])
+
+            //Assert
+            Assert.IsTrue(job3.ToString().StartsWith(Environment.NewLine));
+            Assert.IsTrue(job3.ToString().EndsWith(Environment.NewLine));
+
+        }
+
+        [TestMethod] //5
+        public void TestToStringContainsCorrectLabelsAndData()
+        {
+            Assert.IsTrue(job3.ToString().Contains("ID:"));
+            Assert.IsTrue(job3.ToString().Contains("Name:"));
+            Assert.IsTrue(job3.ToString().Contains("Employer:"));
+            Assert.IsTrue(job3.ToString().Contains("Product tester"));
+        }
+
+        [TestMethod] //6
+        public void TestToStringHandlesEmptyField()
+        {
+            //Job job1 = new Job();
+
+            Assert.IsTrue(job1.ToString().Contains("Data not available"));
+        }
+
         // public void TestMethod()
 
         //TODO: Task 4: remove this method before you create your first test method 

@@ -25,8 +25,7 @@ namespace TechJobsOOAutoGraded6
                 EmployerLocation = employerLocation;
                 JobType = jobType;
                 JobCoreCompetency = jobCoreCompetency;
-            }
-
+            } 
 
 
         // DONE TODO: Task 3: Generate Equals() and GetHashCode() methods.  
@@ -45,6 +44,32 @@ namespace TechJobsOOAutoGraded6
         // TODO: Task 5: Generate custom ToString() method.
         //Until you create this method, you will not be able to print a job to the console.
 
+        // Environment.NewLine is universal new line syntax
+        public override string ToString()
+        {
+            string Employ = EmployerName.ToString();
+            string Loca = EmployerLocation.ToString();
+            string Type = JobType.ToString();
+            string Competent = JobCoreCompetency.ToString();
+
+            if (string.IsNullOrEmpty(Employ))
+                Employ = "Data not available";
+            if (string.IsNullOrEmpty(Loca))
+                Loca = "Data not available";
+            if (string.IsNullOrEmpty(Type))
+                Type = "Data not available";
+            if (string.IsNullOrEmpty(Competent))
+                Competent = "Data not available";
+
+            return Environment.NewLine + $"ID: {Id} "
+                + Environment.NewLine + $"Name: {Name} "
+                + Environment.NewLine + $"Employer: {Employ} "
+                + Environment.NewLine + $"Location: {Loca} "
+                + Environment.NewLine + $"Position Type: {Type} "
+                + Environment.NewLine + $"Core Competency: {Competent} "
+                + Environment.NewLine;
+
+        }
 
         //*/
     }
